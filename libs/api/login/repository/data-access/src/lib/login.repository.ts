@@ -42,11 +42,19 @@ export class LoginRepository {
     return u.userID;
   }
 
-  async getNames(){
+  async getSalt(email:string){
+    const salt = await this.prisma.user.fidnFirst({
+      select:
+      {
+        email:email
+      },
+      where:
+      {
+        email: email
+      }
+    });
 
-    const users = await this.prisma.user.findMany();
-
-    return users;
+    return salt;
   }
 
 }

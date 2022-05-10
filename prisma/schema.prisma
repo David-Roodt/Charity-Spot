@@ -22,6 +22,7 @@ model Organisation {
   OrgName       String  @map("organisation_id")
   NGONum        String? @unique @map("ngo_number")
   Description   String  @map("description")
+  Location      String  @map("location")
 
   @@map("organisation")
 }
